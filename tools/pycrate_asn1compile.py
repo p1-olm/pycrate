@@ -35,6 +35,7 @@ import argparse
 from pycrate_asn1c.proc import compile_text, compile_spec, compile_all, \
      generate_modules, PycrateGenerator, JSONDepGraphGenerator, ASN_SPECS
 
+from pycrate_custom_generator import PycrateCustomGenerator
 
 # inputs:
 # compile any single file
@@ -64,7 +65,9 @@ def main():
     #                    help='provide a specification shortname, instead of ASN.1 input file(s)')
     parser.add_argument('-o', dest='output', type=str, default='out',
                         help='compiled output Python (and json) source file(s)')
-    parser.add_argument('-j', dest='json', action='store_true',
+    parser.add_argument('-c', dest='custom', action='store_true',
+                        help='output a custom file with information on ASN.1 objects dependency')
+    parser.add_argument('-p', dest='json', action='store_true',
                         help='output a json file with information on ASN.1 objects dependency')
     parser.add_argument('-fautotags', action='store_true',
                         help='force AUTOMATIC TAGS for all ASN.1 modules')
@@ -136,9 +139,12 @@ def main():
         print('%s, args error: missing ASN.1 input(s) or specification name' % sys.argv[0])
         return 0
     
-    generate_modules(PycrateGenerator, args.output + '.py')
-    if args.json:
-        generate_modules(JSONDepGraphGenerator, args.output + '.json')
+    if args.custom:
+        generate_modules(PycrateCustomGenerator, args.output + '.py')
+    else:
+        generate_modules(PycrateGenerator, args.output + '.py')
+        if args.json:
+            generate_modules(JSONDepGraphGenerator, args.output + '.json')
     return 0
 
 if __name__ == '__main__':
