@@ -29,6 +29,7 @@
 
 import os
 import re
+import sys
 
 from .specdir   import *
 from .setobj    import *
@@ -36,6 +37,11 @@ from .asnobj    import *
 from .asnobj    import _path_stack, _path_pop
 from .extractor import get_objs
 from .generator import PycrateGenerator, JSONDepGraphGenerator
+
+path_to_src_dir = os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0]))  + '/../../')
+sys.path.insert(0, path_to_src_dir)
+
+from pycrate_custom_generator import PycrateCustomGenerator
 
 #------------------------------------------------------------------------------#
 # ASN.1 files handling
@@ -1115,7 +1121,7 @@ def _verify_const_val(val, consts, mod, name, ind):
 #------------------------------------------------------------------------------#
 
 def generate_modules(generator, destfile='/tmp/gen.py'):
-    generator(destfile)
+    generator(destfile, context=GLOBAL.MOD)
 
 def generate_all(dic=ASN_SPECS, destpath=None):
     """

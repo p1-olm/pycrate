@@ -38,7 +38,8 @@ from .asnobj import get_asnobj, ASN1Obj, INT, OID
 
 class _Generator(object):
     
-    def __init__(self, dest='/tmp/dst.txt'):
+    def __init__(self, dest='/tmp/dst.txt', context=None):
+        self.context = context
         self.dest = dest
         self.fd = open(self.dest, 'w')
         self.indent = 0
@@ -991,4 +992,3 @@ class JSONDepGraphGenerator(_Generator):
         #
         self.indent -= 2
         self.wrl('}')
-
