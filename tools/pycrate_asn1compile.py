@@ -32,6 +32,9 @@ import os
 import sys
 import argparse
 
+path_to_src_dir = os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0]))  + '/../')
+sys.path.insert(0, path_to_src_dir)
+
 from pycrate_asn1c.proc import compile_text, compile_spec, compile_all, \
      generate_modules, PycrateGenerator, JSONDepGraphGenerator, ASN_SPECS
 
