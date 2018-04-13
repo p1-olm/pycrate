@@ -38,11 +38,6 @@ from .asnobj    import _path_stack, _path_pop
 from .extractor import get_objs
 from .generator import PycrateGenerator, JSONDepGraphGenerator
 
-path_to_src_dir = os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0]))  + '/../../')
-sys.path.insert(0, path_to_src_dir)
-
-from pycrate_custom_generator import PycrateCustomGenerator
-
 #------------------------------------------------------------------------------#
 # ASN.1 files handling
 #------------------------------------------------------------------------------#
