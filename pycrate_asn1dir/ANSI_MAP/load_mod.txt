@@ -1,0 +1,14 @@
+# ASN.1 files copied from Wireshark source code:
+# https://github.com/boundary/wireshark/blob/master/asn1/ansi_map/ansi_map.asn
+#
+# Ordered list of ANSI MAP modules
+# to be loaded sequentially
+MAP-ExtensionDataTypes.asn
+MAP-TS-Code.asn
+MAP-BS-Code.asn
+MAP-SS-Code.asn
+MAP-CommonDataTypes.asn
+MAP-MobileServiceOperations.asn
+ANSI_MAP.asn
+
+
