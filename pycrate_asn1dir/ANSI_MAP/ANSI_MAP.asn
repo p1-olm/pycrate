@@ -17,7 +17,7 @@ FROM MAP-CommonDataTypes {
 AuthenticationDirective ::= [PRIVATE 18] SET {
 	electronicSerialNumber					[9] IMPLICIT ElectronicSerialNumber, 
 	--M 6.5.2.63
---	mobileIdentificationNumber				[8] IMPLICIT MobileIdentificationNumber,
+--  mobileIdentificationNumber              [8] IMPLICIT MobileIdentificationNumber,
 	--M 6.5.2.81
 	msid									MSID OPTIONAL,
 	--
@@ -116,7 +116,7 @@ AuthenticationFailureReport ::= [PRIVATE 18] SET {
 	--	 O 6.5.2.19 a
 	mscid									[21] IMPLICIT MSCID OPTIONAL,
 	--	(Serving MSC) O 6.5.2.82 b
-	reportType2								[44] IMPLICIT ReportType OPTIONAL,
+	-- reportType2								[44] IMPLICIT ReportType OPTIONAL,
 	-- 	M 6.5.2.112 c optional?
 	senderIdentificationNumber				[103] IMPLICIT SenderIdentificationNumber OPTIONAL,
 	--	O 6.5.2.116 d
@@ -656,7 +656,7 @@ FeatureRequestRes ::= [PRIVATE 18] SET {
 	-- O 6.5.2.28 d
 	conferenceCallingIndicator				[137] IMPLICIT ConferenceCallingIndicator OPTIONAL,
 	-- O 6.5.2.49 e
-	digits		 							[4] IMPLICIT Digits OPTIONAL,
+	-- digits		 							[4] IMPLICIT Digits OPTIONAL,
 	-- (Dialed) O 6.5.2.58 f
 	digits-Destination						[4] IMPLICIT Digits OPTIONAL,
 	-- (Destination) O 6.5.2.58 l
@@ -1676,7 +1676,7 @@ LocationRequestRes ::= [PRIVATE 18] SET {
 	-- O 6.5.2.f
 	controlNetworkID						[307] IMPLICIT ControlNetworkID OPTIONAL,
 	-- O 6.5.2.ek s
-	digits-carrier 							[4] IMPLICIT Digits OPTIONAL,
+	-- digits-carrier 							[4] IMPLICIT Digits OPTIONAL,
 	-- (Carrier) O 6.5.2.58 f
 	digits-dest 							[4] IMPLICIT Digits OPTIONAL,
 	-- (Destination) O 6.5.2.58 g, h
@@ -1768,7 +1768,7 @@ OriginationRequest ::= [PRIVATE 18] SET {
 	--(Dialed) M 6.5.2.58
 	electronicSerialNumber					[9] IMPLICIT ElectronicSerialNumber, 
 	--M 6.5.2.63
-	mobileIdentificationNumber				[8] IMPLICIT MobileIdentificationNumber,
+	-- mobileIdentificationNumber				[8] IMPLICIT MobileIdentificationNumber,
 	--M 6.5.2.81
 	mscid									[21] IMPLICIT MSCID,
 	--(Originating MSC) M 6.5.2.82	1 0 0 1 0 1 0 1 (0x95)(0x15)
@@ -1921,7 +1921,7 @@ QualificationDirective ::= [PRIVATE 18] SET {
 	-- O 6 .5.2.ac j
 	deniedAuthorizationPeriod				[167] IMPLICIT DeniedAuthorizationPeriod OPTIONAL,
 	-- O 6.5.2.53 c
-	digits-carrier 							[4] IMPLICIT Digits OPTIONAL,
+	-- digits-carrier 							[4] IMPLICIT Digits OPTIONAL,
 	-- (Carrier) O 6.5.2.58 d, e
 	digits-dest 							[4] IMPLICIT Digits OPTIONAL,
 	-- (Destination) O 6.5.2.58 d, f
@@ -2068,7 +2068,7 @@ QualificationRequestRes ::= [PRIVATE 18] SET {
 	-- O 6 .5.2.ac h
 	deniedAuthorizationPeriod				[167] IMPLICIT DeniedAuthorizationPeriod OPTIONAL,
 	-- O 6.5.2.53 c
-	digits-carrier 							[4] IMPLICIT Digits OPTIONAL,
+	-- digits-carrier 							[4] IMPLICIT Digits OPTIONAL,
 	-- (Carrier) O 6.5.2.58 d
 	digits-dest 							[4] IMPLICIT Digits OPTIONAL,
 	-- (Destination) O 6.5.2.58 e
@@ -2170,7 +2170,7 @@ RedirectionDirective ::= [PRIVATE 18] SET {
 	-- M 6.5.2.81
 	systemMyTypeCode						[22] IMPLICIT SystemMyTypeCode,
 	-- (MSC) M 6.5.2.147
-	digits-carrier 							[4] IMPLICIT Digits OPTIONAL,
+	-- digits-carrier 							[4] IMPLICIT Digits OPTIONAL,
 	-- (Carrier) O 6.5.2.58 a
 	dmh-AccountCodeDigits					[140] IMPLICIT DMH-AccountCodeDigits OPTIONAL,
 	-- O 6.5.2.59 b
@@ -2333,7 +2333,7 @@ RegistrationNotificationRes ::= [PRIVATE 18] SET {
 	-- O 6.5.2.51 c
 	deniedAuthorizationPeriod				[167] IMPLICIT DeniedAuthorizationPeriod OPTIONAL,
 	-- O 6.5.2.53 d
-	digits-Carrier	 						[4] IMPLICIT Digits OPTIONAL,
+	-- digits-Carrier	 						[4] IMPLICIT Digits OPTIONAL,
 	--(Carrier) O 6.5.2.58 e
 	digits-Destination						[4] IMPLICIT Digits OPTIONAL,
 	-- (Destination) O 6.5.2.58 f
@@ -2723,7 +2723,7 @@ SMSDeliveryPointToPointRes ::= [PRIVATE 18] SET {
 SMSDeliveryPointToPointAck ::= [PRIVATE 18] SET {
 	interMSCCircuitID						[6] IMPLICIT	InterMSCCircuitID,
 	-- M 2.129
-	imsi									[242] IMPLICIT IMSI OPTIONAL,
+	-- imsi									[242] IMPLICIT IMSI OPTIONAL,
 	-- O 2.127 d
 	msid									MSID OPTIONAL,
 	-- MobileIdentificationNumber O 2.140 d ( exchanged for msid RAB).
@@ -2865,7 +2865,7 @@ TransferToNumberRequestRes ::= [PRIVATE 18] SET {
 	-- O 6.5.2.24 e
 	callingPartySubaddress					[84] IMPLICIT CallingPartySubaddress OPTIONAL,
 	-- O 6.5.2.25 e, f
-	digits-Carrier	 						[4] IMPLICIT Digits OPTIONAL,
+	-- digits-Carrier	 						[4] IMPLICIT Digits OPTIONAL,
 	-- (Carrier) O 6.5.2.58 g
 	displayText								[244] IMPLICIT DisplayText OPTIONAL,
 	-- O 6.5.2.bx d, e, p
@@ -3323,7 +3323,7 @@ AnalyzedInformation ::= [PRIVATE 18] SET {
 	-- O 6.5.2.77 h, t
 	mobileDirectoryNumber					[93] IMPLICIT MobileDirectoryNumber OPTIONAL,
 	-- O 6.5.2.80 i
-	mobileIdentificationNumber				[8] IMPLICIT MobileIdentificationNumber OPTIONAL,
+	-- mobileIdentificationNumber				[8] IMPLICIT MobileIdentificationNumber OPTIONAL,
 	-- O 6.5.2.81 g
 	mSCIdentificationNumber					[94] IMPLICIT MSCIdentificationNumber OPTIONAL,
 	-- O 6.5.2.83 j
@@ -6081,11 +6081,11 @@ ReportType ::= ENUMERATED {
 	unspecified-security-violation		( 1 ),
 	mSID-ESN-mismatch					( 2 ),
 	rANDC-mismatch						( 3 ),
-	reserved							( 4 ),
+	reserved1							( 4 ),
 	sSD-update-failed					( 5 ),
-	reserved							( 6 ),
+	reserved2							( 6 ),
 	cOUNT-mismatch						( 7 ),
-	reserved							( 8 ),
+	reserved3							( 8 ),
 	unique-Challenge-failed				( 9 ),
 	unsolicited-Base-Station-Challenge	( 10 ),
 	sSD-Update-no-response				( 11 ),
@@ -6147,25 +6147,25 @@ SignalingMessageEncryptionKey ::= OCTET STRING
 -- 1 0 0 0 1 0 1 1 (0x8b)(11)
 SignalQuality ::= INTEGER{
 	not-a-usable-signal (0),
-	treat-as-Not-a-usable-signal (1),
-	treat-as-Not-a-usable-signal (2),
-	treat-as-Not-a-usable-signal (3),
-	treat-as-Not-a-usable-signal (4),
-	treat-as-Not-a-usable-signal (5),
-	treat-as-Not-a-usable-signal (6),
-	treat-as-Not-a-usable-signal (7),
-	treat-as-Not-a-usable-signal (8),
-	usable-signal-range (9),
-	usable-signal-range (245),
-	treat-the-same-as-interference (246),
-	treat-the-same-as-interference (247),
-	treat-the-same-as-interference (248),
-	treat-the-same-as-interference (249),
-	treat-the-same-as-interference (250),
-	treat-the-same-as-interference (251),
-	treat-the-same-as-interference (252),
-	treat-the-same-as-interference (253),
-	treat-the-same-as-interference (254),
+	treat-as-Not-a-usable-signal1 (1),
+	treat-as-Not-a-usable-signal2 (2),
+	treat-as-Not-a-usable-signal3 (3),
+	treat-as-Not-a-usable-signal4 (4),
+	treat-as-Not-a-usable-signal5 (5),
+	treat-as-Not-a-usable-signal6 (6),
+	treat-as-Not-a-usable-signal7 (7),
+	treat-as-Not-a-usable-signal8 (8),
+	usable-signal-range1 (9),
+	usable-signal-range2 (245),
+	treat-the-same-as-interference1 (246),
+	treat-the-same-as-interference2 (247),
+	treat-the-same-as-interference3 (248),
+	treat-the-same-as-interference4 (249),
+	treat-the-same-as-interference5 (250),
+	treat-the-same-as-interference6 (251),
+	treat-the-same-as-interference7 (252),
+	treat-the-same-as-interference8 (253),
+	treat-the-same-as-interference9 (254),
 	interference (255)
 } (0..255)
 
@@ -7255,7 +7255,7 @@ TimeDateOffset ::= OCTET STRING
 -- 1 0 0 0 0 0 1 0 (0x82)
 -- 0 0 0 1 0 1 0 0 (0x14)(276)
 TriggerAddressList ::= SET{
-	triggerList			[278] IMPLICIT TriggerList,
+--	triggerList			[278] IMPLICIT TriggerList,
 --	M 6.5.2.dg
 	triggerListOpt		[278] IMPLICIT TriggerList OPTIONAL
 --	O 6.5.2.dg a
@@ -7794,7 +7794,7 @@ CDMAPSMMCount ::= OCTET STRING
  CDMAPSMMList ::= SET OF SET{
 	cdmaServingOneWayDelay2		[347] IMPLICIT CDMAServingOneWayDelay2,
 	-- M 6.5.2.gd
-	cdmaTargetMAHOList			[136] IMPLICIT CDMATargetMAHOList,
+	--cdmaTargetMAHOList			[136] IMPLICIT CDMATargetMAHOList,
 	-- M 6.5.2.43
 	cdmaTargetMAHOList2			[136] IMPLICIT CDMATargetMAHOList OPTIONAL
 	-- O 6.5.2.43 a
@@ -8035,7 +8035,7 @@ Vertical-Velocity ::= OCTET STRING
 -- 1 0 0 0 0 0 1 0 (0x82)
 -- 0 1 1 1 1 1 0 1 (0x7d)(381)
 MPCAddressList ::= SET{
-	mpcAddress		[370] IMPLICIT MPCAddress,
+	--mpcAddress		[370] IMPLICIT MPCAddress,
 	-- M 6.5.2.ha
 	mpcAddress2		[370] IMPLICIT MPCAddress OPTIONAL,
 	-- O 6.5.2.ha a
